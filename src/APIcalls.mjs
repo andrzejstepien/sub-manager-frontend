@@ -9,7 +9,7 @@ const API = axios.create({
 
 export const getSubmissions = async () => {
     try {
-        const res = await API.get("submission/view")
+        const res = await API.get("submissions")
         return res
     } catch (error) {
         console.error(error)
@@ -17,7 +17,7 @@ export const getSubmissions = async () => {
 }
 export const getStories = async () => {
     try {
-        const res = await API.get("story/view")
+        const res = await API.get("stories")
         return res
     } catch (error) {
         console.error(error)
@@ -25,7 +25,7 @@ export const getStories = async () => {
 }
 export const getPublications = async () => {
     try {
-        const res = await API.get("publication/view")
+        const res = await API.get("publications")
         return res
     } catch (error) {
         console.error(error)

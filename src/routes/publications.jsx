@@ -9,13 +9,13 @@ import PageHeader from "../Components/PageHeader.jsx";
 export default function Publications(){
     const { publications } = useLoaderData();
     const filterList = [
-        'Submissions'
+        'submissions'
     ]
     const links = [
-        'Website'
+        'link'
     ]
     const clickables = [
-        ['Title',(row)=>{return `../../publication/${row.ID}`}]    
+        ['title',(row)=>{return `../../publication/${row.ID}`}]    
     ]
     return(
         <>

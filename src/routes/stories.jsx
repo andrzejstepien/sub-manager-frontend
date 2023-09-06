@@ -9,10 +9,10 @@ import PageHeader from "../Components/PageHeader.jsx";
 export default function Stories(){
     const { stories } = useLoaderData();
     const filterList = [
-        'Submissions'
+        'submissions'
     ]
     const clickables = [
-        ['Title',(row)=>{return `../../story/${row.ID}`}]    
+        ['title',(row)=>{return `../../story/${row.ID}`}]    
     ]
     return(
         <>

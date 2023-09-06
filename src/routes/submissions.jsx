@@ -13,12 +13,12 @@ export default function Submissions(){
         'story_id'
     ]
     const highlights = [
-        ['Response','Pending']
+        ['response','Pending']
     ]
     const clickables = [
-        ['Story',(row)=>{
+        ['story',(row)=>{
             return `../../story/${row.story_id}`}],
-        ['Publication',(row)=>{return `../../publication/${row.pub_id}`}]      
+        ['publication',(row)=>{return `../../publication/${row.pub_id}`}]      
     ]
   
     return(
