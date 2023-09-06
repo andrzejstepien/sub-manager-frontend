@@ -9,6 +9,7 @@ export default function Table(props) {
   const sort = (data,sortBy) => {
     const isDate = (str) =>{
         if(str && DateTime.fromFormat(str,'yyyy-MM-dd').isValid){
+          console.log("found a date!")
             return true
         }
         return false
@@ -69,7 +70,6 @@ export default function Table(props) {
         })
       }
     }
-    //NEED TO DYNAMICALLY CAPITALISE HEADINGS HERE AT SOME POINT
     return <tr className="rowHeader">
       {Object.keys(data[0]).map((heading, i) => {
         const isSortable = () => {
@@ -83,7 +83,8 @@ export default function Table(props) {
           }
           return"\u2002"
         }
-        return <th key={heading + i}><button onClick={isSortable()?() => { changeSortBy(heading) }:()=>{}}>{renderArrows(heading)+" "+heading+" "+renderArrows(heading)}</button></th>
+        const capitalisedHeading = heading.slice(0,1).toUpperCase()+heading.slice(1)
+        return <th key={heading + i}><button onClick={isSortable()?() => { changeSortBy(heading) }:()=>{}}>{renderArrows(heading)+" "+capitalisedHeading+" "+renderArrows(heading)}</button></th>
       })}
     </tr>
   }
@@ -100,7 +101,7 @@ export default function Table(props) {
       return <Cell><Badges data={contents} setFocus={props.setFocus} /></Cell>
     }
   const getOriginalRowByID = (array,row) => {
-    return array.find(e=>e?.id===row?.id) //THIS CAN BE CLEANED UP WHEN ALL ID COLUMNS ARE LOWERCASE
+    return array.find(e=>e?.id===row?.id) 
   }
     if(props?.clickables?.find(e=>e[0]===key)){
       const index = props.clickables?.findIndex(row=>row[0]==key)
