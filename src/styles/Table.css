@@ -12,6 +12,7 @@ table table{
   line-height:1em;
 }
 
+
   td{
     padding: 1rem;
     max-width: 30rem;
@@ -38,6 +39,7 @@ table table{
     background-color: hsl(var(--color-1),var(--light));
   }
   .rowHeader button{
+    font-weight: bold;
     width:100%;
     min-width: max-content;
     background-color: transparent;
