@@ -15,7 +15,7 @@ export default function Publications(){
         'link'
     ]
     const clickables = [
-        ['title',(row)=>{return `../../publication/${row.ID}`}]    
+        ['title',(row)=>{return `../../publication/${row.id}`}]    
     ]
     return(
         <>

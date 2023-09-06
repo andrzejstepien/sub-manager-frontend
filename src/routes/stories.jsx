@@ -12,7 +12,7 @@ export default function Stories(){
         'submissions'
     ]
     const clickables = [
-        ['title',(row)=>{return `../../story/${row.ID}`}]    
+        ['title',(row)=>{return `../../story/${row.id}`}]    
     ]
     return(
         <>
