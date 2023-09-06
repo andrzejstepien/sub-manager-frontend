@@ -4,12 +4,12 @@ import PageHeader from "../Components/PageHeader";
 export default function Publication(){
     const { publicationId } = useParams()
     const { publications } = useLoaderData()
-    const publicationsData = publications.find(row=>row.ID==publicationId)
+    const publicationsData = publications.find(row=>row.id==publicationId)
     return(
         <>
         <PageHeader text={'Publication#'+publicationId}/>
         {JSON.stringify(publicationsData)}
-        <Table data={publicationsData.Submissions}></Table>
+        <Table data={publicationsData.submissions}></Table>
         </>
     )
 }
