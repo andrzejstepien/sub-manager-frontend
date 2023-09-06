@@ -1,0 +1,64 @@
+
+table{
+    font-size: 1.6rem;
+    width: fit-content;
+    margin: auto;
+    --odd-color:var(--color-2);
+    --even-color:var(--color-3);
+    --alert-color:var(--accent)
+  }
+table table{
+  font-size:.6rem;
+  line-height:1em;
+}
+
+  td{
+    padding: 1rem;
+    max-width: 30rem;
+    word-break:break-word;
+  }
+
+  .alert{
+    background-color: hsl(var(--alert-color),var(--light));
+  }
+  .oddRow{
+    background-color: hsl(var(--odd-color),var(--lightest));
+  }
+  .oddRow.highlight{
+    background-color: hsl(var(--odd-color),var(--light));
+  }
+  .evenRow{
+    background-color: hsl(var(--even-color),var(--lightest));
+  }
+  .evenRow.highlight{
+    background-color: hsl(var(--even-color),var(--light));
+  }
+  
+  .rowHeader{
+    background-color: hsl(var(--color-1),var(--light));
+  }
+  .rowHeader button{
+    width:100%;
+    min-width: max-content;
+    background-color: transparent;
+  }
+  td button{
+    background-color: transparent;
+    width: 100%;
+    line-height:100%;
+  }
+
+  .badge{
+    font-size: 1rem;
+    color:white;
+    font-weight: bolder;
+    background-color:hsl(var(--accent),var(--dark)); 
+    border-radius: 1rem;
+    padding: 0.1rem 1rem;
+    word-break: keep-all;
+  }
+  
+
+  .badge-container{
+   
+  }

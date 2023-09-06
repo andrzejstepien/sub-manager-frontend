@@ -1,0 +1,54 @@
+@import 'Table.css';
+@import 'Variables.css';
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+* {
+  border: none;
+}
+menu:not(article menu),
+ol:not(article ol),
+ul:not(article ul) {
+    list-style: none;
+}
+menu,
+ol,
+ul {
+    padding-left: 0;
+}
+article ol,
+article ul {
+    list-style-position: inside;
+}
+html {
+  font-size: 62.5%; 
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  scroll-behavior: smooth;
+}
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  #container{
+    display:grid;
+    grid-template-columns: 20rem 1fr ;
+  }
+  #sidebar{
+    font-size: 3.2rem;
+  }
+  header{
+    text-align: center;
+  }
+ 
