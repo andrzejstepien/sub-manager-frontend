@@ -1,12 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Root, loader as rootLoader } from './routes/root';
+import { Root } from './routes/root';
 import ErrorPage from './error-page';
-import Submissions from './routes/submissions';
+import {Submissions} from './routes/submissions';
 import Story from './routes/story';
 import Stories from './routes/stories';
 import Publication from './routes/publication';
 import Publications from './routes/publications';
+import { storiesLoader,publicationsLoader,submissionsLoader } from './loaders.mjs';
 import './styles/index.css'
 import {
   createBrowserRouter,
@@ -22,27 +23,27 @@ const router = createBrowserRouter([
       {
         path: "/stories",
         element: <Stories/>,
-        loader: rootLoader
+        loader: storiesLoader
       },
       {
         path: "/submissions",
         element: <Submissions/>,
-        loader: rootLoader
+        loader: submissionsLoader
       },
       {
         path: "/publications",
         element: <Publications/>,
-        loader: rootLoader
+        loader: publicationsLoader
       },
       {
         path: "/story/:storyId",
         element: <Story/>,
-        loader: rootLoader
+        loader: storiesLoader
       },
       {
         path: "/publication/:publicationId",
         element: <Publication/>,
-        loader: rootLoader
+        loader: publicationsLoader
       }
     ]
   },

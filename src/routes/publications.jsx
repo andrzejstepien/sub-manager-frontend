@@ -4,6 +4,7 @@ import Table from "../Components/Table.jsx";
 import PageHeader from "../Components/PageHeader.jsx";
 
 
+
   
 
 export default function Publications(){
@@ -25,6 +26,7 @@ export default function Publications(){
         filterList={filterList}
         links={links}
         clickables={clickables}
+        sortByDefault='title'
         />
         </>
     )

@@ -1,15 +1,7 @@
 import { Outlet, Link } from "react-router-dom"
 import { getStories, getPublications, getSubmissions } from "../APIcalls.mjs"
 
-export async function loader(){
-  let stories = await getStories()
-  stories = stories.data
-  let publications = await getPublications()
-  publications = publications.data
-  let submissions = await getSubmissions()
-  submissions=submissions.data
-  return { stories, publications, submissions }
-}
+
 
 
 export function Root() {

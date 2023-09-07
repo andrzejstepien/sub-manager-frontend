@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom"
-import { getStories } from "../APIcalls.mjs";
 import Table from "../Components/Table.jsx";
 import PageHeader from "../Components/PageHeader.jsx";
+import { getStories } from "../APIcalls.mjs";
 
 
   
@@ -17,7 +17,12 @@ export default function Stories(){
     return(
         <>
         <PageHeader text="Stories"/>
-        <Table data={stories} filterList={filterList} clickables={clickables}/>
+        <Table 
+        data={stories} 
+        filterList={filterList} 
+        clickables={clickables}
+        sortByDefault='title'
+        />
         </>
     )
 }
