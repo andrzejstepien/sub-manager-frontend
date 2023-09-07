@@ -83,8 +83,9 @@ export default function Table(props) {
           }
           return"\u2002"
         }
-        const capitalisedHeading = heading.slice(0,1).toUpperCase()+heading.slice(1)
-        return <th key={heading + i}><button onClick={isSortable()?() => { changeSortBy(heading) }:()=>{}}>{renderArrows(heading)+" "+capitalisedHeading+" "+renderArrows(heading)}</button></th>
+        const prettifiedHeading = heading.slice(0,1).toUpperCase()+heading.slice(1)
+        .replace(/_/,' ')
+        return <th key={heading + i}><button onClick={isSortable()?() => { changeSortBy(heading) }:()=>{}}>{renderArrows(heading)+" "+prettifiedHeading+" "+renderArrows(heading)}</button></th>
       })}
     </tr>
   }
