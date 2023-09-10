@@ -1,8 +1,11 @@
 export default function (props){
     return(
         <header>
+            <h2>
+                {props.super}
+            </h2>
             <h1>
-                {props.text}
+                {props.heading}
             </h1>
         </header>
     )

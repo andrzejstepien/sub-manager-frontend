@@ -7,17 +7,22 @@ const { filterList, highlights, clickables } = submissionsTableOptions
 export default function Publication() {
     const { publicationId } = useParams()
     const { publications } = useLoaderData()
-    const publicationsData = publications.find(row => row.id == publicationId)
+    const publicationData = publications.find(row => row.id == publicationId)
     return (
-        <>
-            <PageHeader text={'Publication#' + publicationId} />
-            {JSON.stringify(publicationsData)}
-            <Table data={publicationsData.submissions}
-                filterList={filterList}
+        <>  <div id="page">
+            <PageHeader super={'Publication#' + publicationId} heading={publicationData.title}/>
+            <div>
+            Link: 
+            <a href={publicationData.link}>{publicationData.link}</a>
+            </div>
+            <Table data={publicationData.submissions}
+                filterList={[...filterList,'publication']}
                 highlights={highlights}
                 clickables={clickables}
                 sortByDefault='date_submitted'
+                header='Submissions:'
             ></Table>
+            </div>
         </>
     )
 }

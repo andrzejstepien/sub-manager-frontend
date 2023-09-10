@@ -138,13 +138,17 @@ export default function Table(props) {
     })
   }
   
-  return <table>
+  return (
+  <>
+  <h2>{props.header}</h2>
+  <table>
     <tbody>
       {renderHeaders(data)}
       {renderRows(data)}
     </tbody>
   </table>
-
+  </>
+)
 
 
 

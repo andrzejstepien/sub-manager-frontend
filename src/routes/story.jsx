@@ -8,21 +8,20 @@ export default function Story(){
     const { storyId } = useParams()
     const { stories } = useLoaderData()
     const storyData = stories.find(row=>row.id==storyId)
-    filterList.push(
-        'story',
-
-    )
+   
     return(
         <>
-        <PageHeader text={'Story#'+storyId}/>
-        {JSON.stringify(storyData)}
+        <div id="page">
+        <PageHeader super={'Story#'+storyId} heading={storyData.title}/>
      <Table 
      data={storyData.submissions} 
-     filterList={filterList}
+     filterList={[...filterList,'story']}
      highlights={highlights}
      clickables={clickables}
      sortByDefault='date_submitted'
+     header='Submissions:'
      ></Table>
+     </div>
         </>
     )
 }
