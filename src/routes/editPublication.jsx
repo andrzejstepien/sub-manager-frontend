@@ -5,38 +5,38 @@ import { requestEdit } from "../APIcalls.mjs";
 export async function action({request,params}){
     const formData = await request.formData()
     const data = Object.fromEntries(formData)
-    data.id=parseInt(params.storyId)
+    data.id=parseInt(params.publicationId)
     console.dir(data)
-    await requestEdit(data,'story')   
-    return redirect(`/story/${params.storyId}`)
+    await requestEdit(data,'publication')   
+    return redirect(`/publication/${params.publicationId}`)
 }
 
 
 
-export default function EditStory(){
-    const { storyId } = useParams()
-    const { stories } = useLoaderData()
-    const storyData = stories.find(row=>row.id==storyId)
+export default function EditPublication(){
+    const { publicationId } = useParams()
+    const { publications } = useLoaderData()
+    const publicationData = publications.find(row=>row.id==publicationId)
 
 
     return(
         <>
-        <PageHeader super={`Story #${storyData.id}`} heading="EDIT"/>
-        <Form method="post" id="story-form">
+        <PageHeader super={`Publication #${publicationData.id}`} heading="EDIT"/>
+        <Form method="post" id="publication-form">
             <input
                 placeholder='title'
                 aria-label="Title"
                 type="text"
                 name="title"
-                defaultValue={storyData.title}    
+                defaultValue={publicationData.title}    
             />
             <input
                 placeholder='1000'
-                aria-label="Wordcount"
-                type="number"
+                aria-label="Website:"
+                type="text"
                 step="1"
-                name="word_count"
-                defaultValue={storyData.word_count}    
+                name="link"
+                defaultValue={publicationData.link}    
             />
         <button type="submit">SAVE</button>
         <button type="button">CANCEL</button>

@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useParams, Link } from "react-router-dom";
 import Table from "../Components/Table";
 import PageHeader from "../Components/PageHeader";
 import { submissionsTableOptions } from "./submissions.jsx";
@@ -22,6 +22,7 @@ export default function Publication() {
                 sortByDefault='date_submitted'
                 header='Submissions:'
             ></Table>
+            <Link to={`/publication/${publicationData.id}/edit`}>EDIT</Link>
             </div>
         </>
     )

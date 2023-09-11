@@ -8,16 +8,7 @@ const { filterList=[...filterList],highlights,clickables } = submissionsTableOpt
 export default function Story(){
     const { storyId } = useParams()
     const { stories } = useLoaderData()
-    const [storyData,setStoryData] = useState(stories.find(row=>row.id==storyId))
-    useEffect(()=>{
-        setStoryData(stories.find(row=>row.id==storyId))
-        console.log("stories updated!")
-        console.dir(stories)
-    },[stories])
-    useEffect(()=>{
-        // console.log("storyData updated!")
-        // console.dir(storyData)
-    },[storyData])
+    const storyData = stories.find(row=>row.id==storyId)
    
     return(
         <>
