@@ -10,6 +10,10 @@ import Publications from './routes/publications';
 import { storiesLoader,publicationsLoader,submissionsLoader } from './loaders.mjs';
 import EditStory, {action as editStoryAction } from './routes/editStory';
 import EditPublication, {action as editPublicationAction} from './routes/editPublication';
+import CreateStory, {action as createStoryAction} from './routes/createStory';
+import CreatePublication, {action as createPublicationAction} from './routes/createPublication';
+import { action as deleteStoryAction } from './routes/deleteStory';
+import { action as deletePublicationAction } from './routes/deletePublication';
 import './styles/index.css'
 import {
   createBrowserRouter,
@@ -58,6 +62,26 @@ const router = createBrowserRouter([
         element: <EditPublication/>,
         loader: publicationsLoader,
         action: editPublicationAction
+      },
+      {
+        path:"/story/create",
+        element: <CreateStory/>,
+        loader: storiesLoader,
+        action: createStoryAction
+      },
+      {
+        path:"/publication/create",
+        element: <CreatePublication/>,
+        loader: publicationsLoader,
+        action: createPublicationAction
+      },
+      {
+        path:"/story/:storyId/delete",
+        action:deleteStoryAction 
+      },
+      {
+        path:"/publication/:publicationId/delete",
+        action:deletePublicationAction 
       }
     ]
   },

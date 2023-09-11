@@ -39,7 +39,8 @@ export const requestEdit = async (data,type) => {
         console.error(error)
     }
 }
-export const requestDestroy = async (data,type) => {
+export const requestDelete = async (data,type) => {
+    console.log("requesting delete!")
     try {
         const res = await API.post(`/${type}/delete`,data)
         return res

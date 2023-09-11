@@ -1,4 +1,4 @@
-import { useLoaderData, useParams, Link } from "react-router-dom";
+import { useLoaderData, useParams, Link, Form } from "react-router-dom";
 import Table from "../Components/Table";
 import PageHeader from "../Components/PageHeader";
 import { submissionsTableOptions } from "./submissions.jsx";
@@ -23,6 +23,21 @@ export default function Publication() {
                 header='Submissions:'
             ></Table>
             <Link to={`/publication/${publicationData.id}/edit`}>EDIT</Link>
+            <Form
+  method="post"
+  action="delete"
+  onSubmit={(event) => {
+    if (
+      !confirm(
+        "Please confirm you want to delete this record."
+      )
+    ) {
+      event.preventDefault();
+    }
+  }}
+>
+  <button type="submit">Delete</button>
+</Form>
             </div>
         </>
     )
