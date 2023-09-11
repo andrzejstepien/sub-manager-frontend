@@ -1,14 +1,15 @@
-import { Outlet, Link } from "react-router-dom"
+import { Outlet, Link, useNavigation } from "react-router-dom"
 import { getStories, getPublications, getSubmissions } from "../APIcalls.mjs"
-
+import Loader from "../Components/Loader"
 
 
 
 export function Root() {
-
+  const navigation = useNavigation()
     return(
         <>
         <div id="container">
+          {navigation==="loading"?<Loader/>:""}
         <div id="sidebar">
           <ul>
             <li>
@@ -24,9 +25,10 @@ export function Root() {
             </li>
           </ul>
         </div>
-        
+       
         <div id="outlet">
             <Outlet/>
+       
         </div>
         </div>
         
