@@ -20,7 +20,7 @@ export default function Publications(){
     ]
     return(
         <>
-        <PageHeader text="Publications"/>
+        <PageHeader heading="Publications"/>
         <Table 
         data={publications} 
         filterList={filterList}

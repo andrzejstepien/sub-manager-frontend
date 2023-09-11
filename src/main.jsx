@@ -8,6 +8,7 @@ import Stories from './routes/stories';
 import Publication from './routes/publication';
 import Publications from './routes/publications';
 import { storiesLoader,publicationsLoader,submissionsLoader } from './loaders.mjs';
+import EditStory, {action as editStoryAction } from './routes/editStory';
 import './styles/index.css'
 import {
   createBrowserRouter,
@@ -44,6 +45,12 @@ const router = createBrowserRouter([
         path: "/publication/:publicationId",
         element: <Publication/>,
         loader: publicationsLoader
+      },
+      {
+        path:"/story/:storyId/edit",
+        element: <EditStory/>,
+        loader: storiesLoader,
+        action: editStoryAction
       }
     ]
   },

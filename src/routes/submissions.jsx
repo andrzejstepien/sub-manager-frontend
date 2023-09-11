@@ -37,7 +37,7 @@ export function Submissions(){
   
     return(
         <>
-        <PageHeader text="Submissions"/>
+        <PageHeader heading="Submissions"/>
         <Table 
         data={submissions} 
         filterList={filterList} 

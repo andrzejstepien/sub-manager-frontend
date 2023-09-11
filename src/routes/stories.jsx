@@ -16,7 +16,7 @@ export default function Stories(){
     ]
     return(
         <>
-        <PageHeader text="Stories"/>
+        <PageHeader heading="Stories"/>
         <Table 
         data={stories} 
         filterList={filterList} 

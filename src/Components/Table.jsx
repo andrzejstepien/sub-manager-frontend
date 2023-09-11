@@ -9,7 +9,6 @@ export default function Table(props) {
   const sort = (data,sortBy) => {
     const isDate = (str) =>{
         if(str && DateTime.fromFormat(str,'yyyy-MM-dd').isValid){
-          console.log("found a date!")
             return true
         }
         return false
@@ -36,13 +35,13 @@ export default function Table(props) {
  
     
   }
-  const data = cloneDeep(props?.data)
+  const data = props?.data ? cloneDeep(props?.data)
   .map(e=>{
     for (const filter of filterList) {
       delete e[filter]
     }
     return e
-  }) ?? []
+  }) : []
 
   if (data.length === 0) { return <p>Nothing to see here...</p> }
 
