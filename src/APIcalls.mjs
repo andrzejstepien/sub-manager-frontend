@@ -39,3 +39,19 @@ export const requestEdit = async (data,type) => {
         console.error(error)
     }
 }
+export const requestDestroy = async (data,type) => {
+    try {
+        const res = await API.post(`/${type}/delete`,data)
+        return res
+    } catch (error) {
+        console.error(error)
+    }
+}
+export const requestCreate = async (data,type) => {
+    try {
+        const res = await API.post(`/${type}/create`,data)
+        return res
+    } catch (error) {
+        console.log(error)
+    }
+}
