@@ -1,6 +1,7 @@
 @import 'Table.css';
 @import 'Variables.css';
 @import 'Form.css';
+@import 'PageHeader.css';
 *,
 *::before,
 *::after {
@@ -66,7 +67,7 @@ html {
     font-size: 2rem;
     margin:0;
   }
-  #page{
+  #page-container{
     font-size: 1.6rem;
     width: fit-content;
     margin:auto;

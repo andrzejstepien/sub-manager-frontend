@@ -12,8 +12,8 @@ export default function Story() {
 
   return (
     <>
-      <div id="page">
-        <PageHeader super={'Story#' + storyId} heading={storyData.title} />
+      <div id="page-container">
+        <PageHeader super={'Story#' + storyId} heading={storyData.title} url="/story" id={storyId}/>
         <div>Wordcount: {storyData.word_count}</div>
         <Table
           data={storyData.submissions}

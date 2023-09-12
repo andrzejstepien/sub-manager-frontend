@@ -17,7 +17,7 @@ export default function CreatePublication(){
 
 
     return(
-        <>
+        <div id="page-container">
         <PageHeader super={`Publication`} heading="CREATE"/>
         <Form method="post" id="new-story-form">
             <input
@@ -47,7 +47,7 @@ export default function CreatePublication(){
         <button type="button">CANCEL</button>
         </Form>
         
-        </>
+        </div>
     )
 
 }

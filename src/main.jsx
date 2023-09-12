@@ -15,6 +15,7 @@ import CreatePublication, {action as createPublicationAction} from './routes/cre
 import { action as deleteStoryAction } from './routes/deleteStory';
 import { action as deletePublicationAction } from './routes/deletePublication';
 import EditSubmission, {action as editSubmissionAction} from './routes/editSubmission';
+import CreateSubmission, {action as createSubmissionAction} from './routes/createSubmission';
 import './styles/index.css'
 import {
   createBrowserRouter,
@@ -83,6 +84,12 @@ const router = createBrowserRouter([
         element: <CreatePublication/>,
         loader: publicationsLoader,
         action: createPublicationAction
+      },
+      {
+        path:"/submission/create",
+        element: <CreateSubmission/>,
+        loader: editSubmissionLoader,
+        action: createSubmissionAction
       },
       {
         path:"/story/:storyId/delete",

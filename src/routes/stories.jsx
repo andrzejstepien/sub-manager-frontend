@@ -15,14 +15,14 @@ export default function Stories(){
         ['title',(row)=>{return `../../story/${row.id}`}]    
     ]
     return(
-        <>
-        <PageHeader heading="Stories"/>
+        <div id="page-container">
+        <PageHeader heading="Stories" url="/story"/>
         <Table 
         data={stories} 
         filterList={filterList} 
         clickables={clickables}
         sortByDefault='title'
         />
-        </>
+        </div>
     )
 }

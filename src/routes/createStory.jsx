@@ -17,9 +17,10 @@ export default function CreateStory(){
 
 
     return(
-        <>
+        <div id="page-container">
         <PageHeader super={`Story`} heading="CREATE"/>
         <Form method="post" id="new-story-form">
+            <label>
             <input
                 placeholder='title'
                 aria-label="Title"
@@ -27,6 +28,8 @@ export default function CreateStory(){
                 name="title"
                 defaultValue=""
             />
+            </label>
+            <label>
             <input
                 placeholder='1000'
                 aria-label="Wordcount"
@@ -35,11 +38,16 @@ export default function CreateStory(){
                 name="word_count"
                 defaultValue=""
             />
-        <button type="submit">SAVE</button>
+            </label>
+            <div id="bottom-button-container">
+            <button type="submit">SAVE</button>
         <button type="button">CANCEL</button>
+            </div>
+        
+        
         </Form>
         
-        </>
+        </div>
     )
 
 }

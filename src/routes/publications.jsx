@@ -19,8 +19,8 @@ export default function Publications(){
         ['title',(row)=>{return `../../publication/${row.id}`}]    
     ]
     return(
-        <>
-        <PageHeader heading="Publications"/>
+        <div id="page-container">
+        <PageHeader heading="Publications" url="/publication"/>
         <Table 
         data={publications} 
         filterList={filterList}
@@ -28,6 +28,6 @@ export default function Publications(){
         clickables={clickables}
         sortByDefault='title'
         />
-        </>
+        </div>
     )
 }

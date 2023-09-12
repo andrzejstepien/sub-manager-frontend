@@ -20,8 +20,8 @@ export default function EditStory(){
 
 
     return(
-        <>
-        <PageHeader super={`Story #${storyData.id}`} heading="EDIT"/>
+        <div id="page-container">
+        <PageHeader super={`Story #${storyData.id}`} heading="EDIT" url="/story" id={storyId}/>
         <Form method="post" id="story-form">
             <label> Title:
             <input
@@ -49,7 +49,7 @@ export default function EditStory(){
         
         </Form>
         
-        </>
+        </div>
     )
 
 }

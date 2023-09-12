@@ -9,8 +9,8 @@ export default function Publication() {
     const { publications } = useLoaderData()
     const publicationData = publications.find(row => row.id == publicationId)
     return (
-        <>  <div id="page">
-            <PageHeader super={'Publication#' + publicationId} heading={publicationData.title}/>
+        <>  <div id="page-container">
+            <PageHeader super={'Publication#' + publicationId} heading={publicationData.title} url="/publication" id={publicationId}/>
             <div>
             Link: 
             <a href={publicationData.link}>{publicationData.link}</a>

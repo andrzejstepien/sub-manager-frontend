@@ -39,8 +39,8 @@ export function Submissions(){
 
   
     return(
-        <>
-        <PageHeader heading="Submissions"/>
+        <div id="page-container">
+        <PageHeader heading="Submissions" url="/submission"/>
         <Table 
         data={submissions} 
         filterList={filterList} 
@@ -48,6 +48,6 @@ export function Submissions(){
         sortByDefault="date_submitted"
         clickables={clickables}
         />
-        </>
+        </div>
     )
 }

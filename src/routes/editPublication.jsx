@@ -20,8 +20,8 @@ export default function EditPublication(){
 
 
     return(
-        <>
-        <PageHeader super={`Publication #${publicationData.id}`} heading="EDIT"/>
+        <div id="page-container">
+        <PageHeader super={`Publication #${publicationData.id}`} heading="EDIT" url="/publication" id={publicationId}/>
         <Form method="post" id="publication-form">
             <label>Title:
             <input
@@ -49,7 +49,7 @@ export default function EditPublication(){
         
         </Form>
         
-        </>
+        </div>
     )
 
 }
