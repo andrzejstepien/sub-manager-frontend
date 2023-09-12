@@ -31,6 +31,14 @@ export const getPublications = async () => {
         console.error(error)
     }
 }
+export const getResponses = async () => {
+    try {
+        const res = await API.get("responses")
+        return res
+    } catch (error) {
+        console.error(error)
+    }
+}
 export const requestEdit = async (data,type) => {
     try {
         const res = await API.post(`/${type}/edit`,data)

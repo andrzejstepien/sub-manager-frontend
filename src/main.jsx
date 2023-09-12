@@ -7,13 +7,14 @@ import Story from './routes/story';
 import Stories from './routes/stories';
 import Publication from './routes/publication';
 import Publications from './routes/publications';
-import { storiesLoader,publicationsLoader,submissionsLoader } from './loaders.mjs';
+import { storiesLoader,publicationsLoader,submissionsLoader, editSubmissionLoader } from './loaders.mjs';
 import EditStory, {action as editStoryAction } from './routes/editStory';
 import EditPublication, {action as editPublicationAction} from './routes/editPublication';
 import CreateStory, {action as createStoryAction} from './routes/createStory';
 import CreatePublication, {action as createPublicationAction} from './routes/createPublication';
 import { action as deleteStoryAction } from './routes/deleteStory';
 import { action as deletePublicationAction } from './routes/deletePublication';
+import EditSubmission, {action as editSubmissionAction} from './routes/editSubmission';
 import './styles/index.css'
 import {
   createBrowserRouter,
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       {
         path: "/stories",
         element: <Stories/>,
+        id:"stories",
         loader: storiesLoader
       },
       {
@@ -38,6 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/publications",
+        id:"publications",
         element: <Publications/>,
         loader: publicationsLoader
       },
@@ -62,6 +65,12 @@ const router = createBrowserRouter([
         element: <EditPublication/>,
         loader: publicationsLoader,
         action: editPublicationAction
+      },
+      {
+        path:"/submission/:submissionId/edit",
+        element: <EditSubmission/>,
+        loader: editSubmissionLoader,
+        action: editSubmissionAction
       },
       {
         path:"/story/create",

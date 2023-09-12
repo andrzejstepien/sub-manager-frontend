@@ -23,6 +23,7 @@ export default function EditStory(){
         <>
         <PageHeader super={`Story #${storyData.id}`} heading="EDIT"/>
         <Form method="post" id="story-form">
+            <label> Title:
             <input
                 placeholder='title'
                 aria-label="Title"
@@ -30,6 +31,8 @@ export default function EditStory(){
                 name="title"
                 defaultValue={storyData.title}    
             />
+            </label>
+            <label> Wordcount:
             <input
                 placeholder='1000'
                 aria-label="Wordcount"
@@ -38,8 +41,12 @@ export default function EditStory(){
                 name="word_count"
                 defaultValue={storyData.word_count}    
             />
+            </label>
+        <div id="bottom-button-container">
         <button type="submit">SAVE</button>
         <button type="button">CANCEL</button>
+        </div>
+        
         </Form>
         
         </>

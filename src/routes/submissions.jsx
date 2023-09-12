@@ -32,8 +32,11 @@ export function Submissions(){
     const clickables = [
         ['story',(row)=>{
             return `../../story/${row.story_id}`}],
-        ['publication',(row)=>{return `../../publication/${row.pub_id}`}]      
+        ['publication',(row)=>{return `../../publication/${row.pub_id}`}],
+        ['id',(row)=>{return `../../submission/${row.id}/edit`}]      
     ]
+
+
   
     return(
         <>

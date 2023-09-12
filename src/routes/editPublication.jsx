@@ -23,6 +23,7 @@ export default function EditPublication(){
         <>
         <PageHeader super={`Publication #${publicationData.id}`} heading="EDIT"/>
         <Form method="post" id="publication-form">
+            <label>Title:
             <input
                 placeholder='title'
                 aria-label="Title"
@@ -30,6 +31,8 @@ export default function EditPublication(){
                 name="title"
                 defaultValue={publicationData.title}    
             />
+            </label>
+            <label> Website:
             <input
                 placeholder='1000'
                 aria-label="Website:"
@@ -38,8 +41,12 @@ export default function EditPublication(){
                 name="link"
                 defaultValue={publicationData.link}    
             />
-        <button type="submit">SAVE</button>
-        <button type="button">CANCEL</button>
+            </label>
+            <div id="bottom-button-container">
+            <button type="submit">SAVE</button>
+            <button type="button">CANCEL</button>
+            </div>
+        
         </Form>
         
         </>
