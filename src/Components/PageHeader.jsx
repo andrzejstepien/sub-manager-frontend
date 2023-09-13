@@ -1,9 +1,32 @@
 import plus from '../assets/plus.svg'
 import pencil from '../assets/pencil.svg'
 import trash from '../assets/trash.svg'
-import { Link, Form, useNavigate } from 'react-router-dom'
+import { Link, Form, useNavigate, useSubmit } from 'react-router-dom'
 export default function (props) {
     const navigate = useNavigate()
+    let submit = useSubmit()
+    const handleClickDelete = (event) => {
+        if(props?.id){
+            if (confirm("Are you sure you want to delete this record?")){
+                event.preventDefault();
+                submit({
+                    id:props.id
+                },
+                {
+                    method:"post",
+                    action: `${props.url}/${props.id}/delete`
+                })            
+                
+            }   
+        }else{
+            navigate(`${props.url}/delete`)
+        }
+        
+
+        
+      }
+
+
     return (
         <header id="page-header">
             <div id="h-container">
@@ -24,22 +47,11 @@ export default function (props) {
                     <button onClick={() => { navigate(`${props.url}${props?.id ? `/${props.id}` : ""}/edit`) }}>
                         <img src={pencil} />
                     </button>
-                    <Form
-                    method="post"
-                    action="delete"
-                    onSubmit={(event) => {
-                        if (
-                            !confirm(
-                                "Please confirm you want to delete this record."
-                            )
-                        ) {
-                            event.preventDefault();
-                        }
-                    }}
-                >
-                    <button type="submit"
-                    ><img src={trash} /></button>
-                </Form>
+                    <button 
+                          onClick={handleClickDelete}>
+                        <img src={trash} />
+                    </button>
+                   
 
 
             </span>

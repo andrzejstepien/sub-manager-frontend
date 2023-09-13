@@ -14,11 +14,15 @@ import CreateStory, {action as createStoryAction} from './routes/createStory';
 import CreatePublication, {action as createPublicationAction} from './routes/createPublication';
 import { action as deleteStoryAction } from './routes/deleteStory';
 import { action as deletePublicationAction } from './routes/deletePublication';
+import {action as deleteSubmissionAction} from './routes/deleteSubmission'
 import EditSubmission, {action as editSubmissionAction} from './routes/editSubmission';
 import CreateSubmission, {action as createSubmissionAction} from './routes/createSubmission';
 import EditStoryRoot from './routes/editStoryRoot';
 import EditPublicationRoot from './routes/editPublicationRoot';
 import EditSubmissionRoot from './routes/editSubmissionRoot';
+import DeleteStoryRoot from './routes/deleteStoryRoot';
+import DeletePublicationRoot from './routes/deletePublicationRoot';
+import DeleteSubmissionRoot from './routes/deleteSubmissionRoot';
 import './styles/index.css'
 import {
   createBrowserRouter,
@@ -121,6 +125,25 @@ const router = createBrowserRouter([
       {
         path:"/publication/:publicationId/delete",
         action:deletePublicationAction 
+      },
+      {
+        path:"/submission/:subId/delete",
+        action: deleteSubmissionAction
+      },
+      {
+        path:"/story/delete",
+        element:<DeleteStoryRoot/>,
+        loader:storiesLoader
+      },
+      {
+        path:"/publication/delete",
+        element:<DeletePublicationRoot/>,
+        loader:publicationsLoader
+      },
+      {
+        path:"/submission/delete",
+        element:<DeleteSubmissionRoot/>,
+        loader:submissionsLoader
       }
     ]
   },
