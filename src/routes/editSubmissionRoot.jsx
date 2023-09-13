@@ -12,7 +12,7 @@ const handleChange = (event) => {
 }
     return(
         <>
-        <div id="page-container">
+        <div id="page-container" className="vertical-center">
         <Form >
         <h2>Which submission would you like to edit?</h2>
         <label>Date submitted:

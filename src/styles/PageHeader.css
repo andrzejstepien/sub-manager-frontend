@@ -27,8 +27,24 @@
 #icon-container a{
     padding:0;
 }
+#h-container{
+    display: flex;
+    flex-direction: column;
+    align-content:center;
+}
+#page-header h2{
+display:block;
+max-width: fit-content;
+}
 #page-header h1{
+    line-height: 1em;
+    display:block;
     font-size:6rem;
     text-shadow: var(--text-shadow-light);
     margin-right: 5rem;
+    max-width:20ch;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+
 }

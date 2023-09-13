@@ -139,6 +139,7 @@ export default function Table(props) {
   
   return (
   <>
+  <div id="table-container">
   <h2>{props.header}</h2>
   <table>
     <tbody>
@@ -146,6 +147,8 @@ export default function Table(props) {
       {renderRows(data)}
     </tbody>
   </table>
+  </div>
+  
   </>
 )
 

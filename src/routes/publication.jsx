@@ -10,20 +10,23 @@ export default function Publication() {
     const publicationData = publications.find(row => row.id == publicationId)
     return (
         <>  <div id="page-container">
-            <PageHeader super={'Publication#' + publicationId} heading={publicationData.title} url="/publication" id={publicationId}/>
-            <div>
-            Link: 
-            <a href={publicationData.link}>{publicationData.link}</a>
+            <PageHeader super={'Publication#' + publicationId} heading={publicationData.title} url="/publication" id={publicationId} />
+            <div id="page-info-container">
+                <div>
+                    Link:
+                    <a href={publicationData.link}>{publicationData.link}</a>
+                </div>
             </div>
+
             <Table data={publicationData.submissions}
-                filterList={[...filterList,'publication']}
+                filterList={[...filterList, 'publication']}
                 highlights={highlights}
                 clickables={clickables}
                 sortByDefault='date_submitted'
                 header='Submissions:'
             ></Table>
-           
-            </div>
+
+        </div>
         </>
     )
 }

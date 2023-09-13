@@ -1,8 +1,12 @@
+#table-container{
+  width: fit-content;
+  margin: auto;
+  margin-top: 5rem;
+}
 
 table{
     font-size: 1.6rem;
-    width: fit-content;
-    margin: auto;
+    
     --odd-color:var(--color-2);
     --even-color:var(--color-3);
     --alert-color:var(--accent)

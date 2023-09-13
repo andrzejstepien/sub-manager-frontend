@@ -1,4 +1,4 @@
-import { Form, useLoaderData, useParams, redirect } from "react-router-dom";
+import { Form, useLoaderData, useParams, redirect, useNavigate } from "react-router-dom";
 import PageHeader from "../Components/PageHeader";
 import { requestEdit } from "../APIcalls.mjs";
 
@@ -14,6 +14,7 @@ export async function action({request,params}){
 
 
 export default function EditPublication(){
+    const navigate = useNavigate()
     const { publicationId } = useParams()
     const { publications } = useLoaderData()
     const publicationData = publications.find(row=>row.id==publicationId)
@@ -44,7 +45,7 @@ export default function EditPublication(){
             </label>
             <div id="bottom-button-container">
             <button type="submit">SAVE</button>
-            <button type="button">CANCEL</button>
+            <button type="button" onClick={()=>{navigate("/publications")}}>CANCEL</button>
             </div>
         
         </Form>

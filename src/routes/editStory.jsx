@@ -1,4 +1,4 @@
-import { Form, useLoaderData, useParams, redirect } from "react-router-dom";
+import { Form, useLoaderData, useParams, redirect, useNavigate } from "react-router-dom";
 import PageHeader from "../Components/PageHeader";
 import { requestEdit } from "../APIcalls.mjs";
 
@@ -14,6 +14,7 @@ export async function action({request,params}){
 
 
 export default function EditStory(){
+    const navigate = useNavigate()
     const { storyId } = useParams()
     const { stories } = useLoaderData()
     const storyData = stories.find(row=>row.id==storyId)
@@ -44,7 +45,7 @@ export default function EditStory(){
             </label>
         <div id="bottom-button-container">
         <button type="submit">SAVE</button>
-        <button type="button">CANCEL</button>
+        <button type="button" onClick={()=>{navigate("/stories")}}>CANCEL</button>
         </div>
         
         </Form>

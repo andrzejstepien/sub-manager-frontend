@@ -13,8 +13,11 @@ export default function Story() {
   return (
     <>
       <div id="page-container">
-        <PageHeader super={'Story#' + storyId} heading={storyData.title} url="/story" id={storyId}/>
-        <div>Wordcount: {storyData.word_count}</div>
+        <PageHeader super={'Story#' + storyId} heading={storyData.title} url="/story" id={storyId} />
+        <div id="page-info-container">
+          <div>Wordcount: {storyData.word_count}</div>
+
+        </div>
         <Table
           data={storyData.submissions}
           filterList={[...filterList, 'story']}
@@ -24,8 +27,8 @@ export default function Story() {
           header='Submissions:'
         ></Table>
 
-        
-        
+
+
       </div>
     </>
   )

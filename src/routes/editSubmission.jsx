@@ -1,4 +1,4 @@
-import { Form, useLoaderData, useParams, redirect } from "react-router-dom";
+import { Form, useLoaderData, useParams, redirect, useNavigate } from "react-router-dom";
 import PageHeader from "../Components/PageHeader";
 import { requestEdit } from "../APIcalls.mjs";
 import Dropdown from "../Components/Dropdown";
@@ -17,6 +17,7 @@ export async function action({request,params}){
 
 
 export default function EditSubmission(){
+    const navigate = useNavigate()
     const { submissionId } = useParams()
     const { submissions, stories, publications, responses } = useLoaderData()
     const submissionData = submissions.find(row=>row.id==submissionId)
@@ -64,7 +65,7 @@ export default function EditSubmission(){
             </label>
             <div id="bottom-button-container">
             <button type="submit">SAVE</button>
-        <button type="button">CANCEL</button>
+        <button type="button" onClick={()=>{navigate("/submissions")}}>CANCEL</button>
             </div>
         
         </Form>
