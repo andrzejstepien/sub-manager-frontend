@@ -16,6 +16,9 @@ import { action as deleteStoryAction } from './routes/deleteStory';
 import { action as deletePublicationAction } from './routes/deletePublication';
 import EditSubmission, {action as editSubmissionAction} from './routes/editSubmission';
 import CreateSubmission, {action as createSubmissionAction} from './routes/createSubmission';
+import EditStoryRoot from './routes/editStoryRoot';
+import EditPublicationRoot from './routes/editPublicationRoot';
+import EditSubmissionRoot from './routes/editSubmissionRoot';
 import './styles/index.css'
 import {
   createBrowserRouter,
@@ -28,6 +31,11 @@ const router = createBrowserRouter([
     element: <Root/>,
     errorElement: <ErrorPage />,
     children:[
+      {
+        index:true,
+        element:<Submissions/>,
+        loader:submissionsLoader
+      },
       {
         path: "/stories",
         element: <Stories/>,
@@ -62,16 +70,31 @@ const router = createBrowserRouter([
         action: editStoryAction
       },
       {
+        path:"/story/edit",
+        element: <EditStoryRoot/>,
+        loader: storiesLoader
+      },
+      {
         path:"/publication/:publicationId/edit",
         element: <EditPublication/>,
         loader: publicationsLoader,
         action: editPublicationAction
       },
       {
+        path:"/publication/edit",
+        element: <EditPublicationRoot/>,
+        loader: publicationsLoader
+      },
+      {
         path:"/submission/:submissionId/edit",
         element: <EditSubmission/>,
         loader: editSubmissionLoader,
         action: editSubmissionAction
+      },
+      {
+        path:"/submission/edit",
+        element: <EditSubmissionRoot/>,
+        loader: submissionsLoader
       },
       {
         path:"/story/create",

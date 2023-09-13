@@ -20,6 +20,7 @@ export default function CreatePublication(){
         <div id="page-container">
         <PageHeader super={`Publication`} heading="CREATE"/>
         <Form method="post" id="new-story-form">
+            <label>Title:
             <input
                 placeholder='title'
                 aria-label="Title"
@@ -27,6 +28,8 @@ export default function CreatePublication(){
                 name="title"
                 defaultValue=""
             />
+            </label>
+            <label>Website:
             <input
                 placeholder='website'
                 aria-label="Website:"
@@ -35,6 +38,8 @@ export default function CreatePublication(){
                 name="link"
                 defaultValue=""
             />
+            </label>
+            <label>Query after (days):
             <input
                 placeholder='1000'
                 aria-label="Query after:"
@@ -43,6 +48,11 @@ export default function CreatePublication(){
                 name="query_after_days"
                 defaultValue=""
             />
+            </label>
+           
+            
+            
+            
         <button type="submit">SAVE</button>
         <button type="button">CANCEL</button>
         </Form>

@@ -9,11 +9,14 @@
     --off-white:98%;
     --lightest:90%;
     --light:85%;
+    --medium:60%;
     --dark:50%;
     --darkest:20%;
 
     --box-shadow:10px 10px 30px 0px hsla(var(--color-5),var(--dark));
     --box-shadow-light:5px 5px 30px 0px hsla(var(--color-5),var(--light));
+    --text-shadow-light: 5px 5px 4px hsla(var(--color-5),var(--light));
+    --text-shadow-dark: 3px 3px 15px hsla(var(--color-5),var(--dark),70%);
 
 
 }

@@ -22,22 +22,7 @@ export default function Publication() {
                 sortByDefault='date_submitted'
                 header='Submissions:'
             ></Table>
-            <Link to={`/publication/${publicationData.id}/edit`}>EDIT</Link>
-            <Form
-  method="post"
-  action="delete"
-  onSubmit={(event) => {
-    if (
-      !confirm(
-        "Please confirm you want to delete this record."
-      )
-    ) {
-      event.preventDefault();
-    }
-  }}
->
-  <button type="submit">Delete</button>
-</Form>
+           
             </div>
         </>
     )

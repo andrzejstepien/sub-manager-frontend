@@ -24,24 +24,8 @@ export default function Story() {
           header='Submissions:'
         ></Table>
 
-        <Form
-          method="post"
-          action="delete"
-          onSubmit={(event) => {
-            if (
-              !confirm(
-                "Please confirm you want to delete this record."
-              )
-            ) {
-              event.preventDefault();
-            }
-          }}
-        >
-          <button type="submit">Delete</button>
-        </Form>
-        <Form>
-           <Link to={`/story/${storyData.id}/edit`}>EDIT</Link>
-        </Form>
+        
+        
       </div>
     </>
   )

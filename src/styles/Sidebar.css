@@ -1,0 +1,17 @@
+#sidebar{   
+    padding: 3rem;
+    background-image: linear-gradient(to right,hsl(var(--color-3),var(--medium))85%,hsla(var(--color-2),var(--light),0%));
+    color: white;
+    min-height: 100vh;
+}
+#sidebar a{
+    color:white;
+}
+#sidebar h1{
+    text-shadow: var(--text-shadow-dark);
+    font-size:4.5rem;
+}
+#sidebar a:hover{
+    text-shadow:
+    0 0 1em hsla(var(--accent),var(--off-white),50%);
+  }

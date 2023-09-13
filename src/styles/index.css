@@ -2,6 +2,7 @@
 @import 'Variables.css';
 @import 'Form.css';
 @import 'PageHeader.css';
+@import 'Sidebar.css';
 *,
 *::before,
 *::after {
@@ -24,6 +25,20 @@ article ol,
 article ul {
     list-style-position: inside;
 }
+a{
+  text-decoration: none;
+}
+a:visited,a:link{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+a:hover{
+  text-shadow:
+  1px 1px 2px white,
+  0 0 3em white,
+  0 0 1em hsl(var(--accent),var(--off-white));
+}
 html {
   font-size: 62.5%; 
   -webkit-text-size-adjust: none;
@@ -45,7 +60,7 @@ html {
   
   #container{
     display:grid;
-    grid-template-columns: 20rem 1fr ;
+    grid-template-columns: 35rem 1fr ;
   }
   #sidebar{
     font-size: 3.2rem;
