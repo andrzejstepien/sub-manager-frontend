@@ -42,6 +42,7 @@ export const getResponses = async () => {
 export const requestEdit = async (data,type) => {
     try {
         const res = await API.post(`/${type}/edit`,data)
+        console.log(res)
         return res
     } catch (error) {
         console.error(error)

@@ -73,6 +73,9 @@ html {
     cursor:pointer;
   }
  
+  img{
+    filter: invert(83%) sepia(12%) saturate(500%) hue-rotate(129deg) brightness(60%) contrast(89%);
+  }
 
   h1{
     font-size: 4rem;

@@ -5,7 +5,8 @@ import { DateTime } from "luxon"
 import { Link } from "react-router-dom"
 import { cloneDeep } from "lodash"
 export default function Table(props) {
-  const filterList = props?.filterList ?? []
+  const filterColumns = props?.filterColumns ?? []
+  const filterRows = props?.filterRows ?? []
   const sort = (data,sortBy) => {
     const isDate = (str) =>{
         if(str && DateTime.fromFormat(str,'yyyy-MM-dd').isValid){
@@ -37,11 +38,22 @@ export default function Table(props) {
   }
   const data = props?.data ? cloneDeep(props?.data)
   .map(e=>{
-    for (const filter of filterList) {
+    for(const filter of filterRows){
+      if(e[filter.column]===filter.value){
+        return null
+      }
+    }
+    for (const filter of filterColumns) {
       delete e[filter]
     }
+    if(props?.extraCols){
+      for (const col of props.extraCols) {
+        e[col[0]]=col[1]
+      }
+    }
     return e
-  }) : []
+  })
+  .filter(e=>{return e!==null}) : []
 
   if (data.length === 0) { return <p>Nothing to see here...</p> }
 

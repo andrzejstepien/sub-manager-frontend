@@ -9,8 +9,12 @@ import PageHeader from "../Components/PageHeader.jsx";
 
 export default function Publications(){
     const { publications } = useLoaderData();
-    const filterList = [
-        'submissions'
+    const filterColumns = [
+        'submissions',
+        'deleted'
+    ]
+    const filterRows = [
+        {column:'deleted',value:1}
     ]
     const links = [
         'link'
@@ -23,10 +27,11 @@ export default function Publications(){
         <PageHeader heading="Publications" url="/publication"/>
         <Table 
         data={publications} 
-        filterList={filterList}
+        filterColumns={filterColumns}
         links={links}
         clickables={clickables}
         sortByDefault='title'
+        filterRows={filterRows}
         />
         </div>
     )
