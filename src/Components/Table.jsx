@@ -3,9 +3,10 @@ import { useState } from "react"
 import { renderClassNames } from "../functions/utilities.mjs"
 import { DateTime } from "luxon"
 import { Link } from "react-router-dom"
-import { cloneDeep } from "lodash"
+import { cloneDeep, forIn } from "lodash"
 export default function Table(props) {
-  const filterList = props?.filterList ?? []
+  const filterColumns = props?.filterColumns ?? []
+  const filterRows = props?.filterRows ?? []
   const sort = (data,sortBy) => {
     const isDate = (str) =>{
         if(str && DateTime.fromFormat(str,'yyyy-MM-dd').isValid){
@@ -37,12 +38,22 @@ export default function Table(props) {
   }
   const data = props?.data ? cloneDeep(props?.data)
   .map(e=>{
-    for (const filter of filterList) {
+    for(const filter of filterRows){
+      if(e[filter.column]===filter.value){
+        return null
+      }
+    }
+    for (const filter of filterColumns) {
       delete e[filter]
     }
+    if(props?.extraCols){
+      for (const col of props.extraCols) {
+        e[col[0]]=col[1]
+      }
+    }
     return e
-  }) : []
-
+  })
+  .filter(e=>{return e!==null}) : []
   if (data.length === 0) { return <p>Nothing to see here...</p> }
 
   const [sortBy, setSortBy] = useState({
@@ -94,11 +105,19 @@ export default function Table(props) {
       return <td key={row[key] + rowIndex + colIndex}>{props.children}</td>
     }
     const contents = row[key]
+
     if (Array.isArray(contents)) {
+      const badgeIndex = props?.badges?.findIndex(e=>{return e[0]==key})
+      console.log("badgeIndex for key "+key+": "+badgeIndex)
+      if(badgeIndex>=0){
+        const array = contents.map(e=>{return e[props.badges[badgeIndex][1]]})
+        console.dir(array)
+        return <Cell><Badges data={array} setFocus={props.setFocus} /></Cell>
+      }
       if (typeof contents[0] === 'object') {
         return <Cell><Table data={contents} setFocus={props.setFocus} /></Cell>
       }
-      return <Cell><Badges data={contents} setFocus={props.setFocus} /></Cell>
+      
     }
   const getOriginalRowByID = (array,row) => {
     return array.find(e=>e?.id===row?.id) 
@@ -111,9 +130,7 @@ export default function Table(props) {
     if (props?.links?.includes(key)) {
       return <Cell><a href={contents}>{contents}</a></Cell>
     }
-    // if (key === "Days Out") {
-    //   return <Cell>{row['Days Out']} </Cell>
-    // }
+
     return <Cell>{contents}</Cell>
   }
   const oddOrEven = (n) => {
@@ -131,7 +148,6 @@ export default function Table(props) {
       const classNames = [
         `row ${oddOrEven(rowIndex)} `,
         isHighlight(props?.highlights, row) ? 'highlight' : "",
-        //row['Query After'] - row['Days Out'] < 0 && row['Responded'] === '-' ? "alert" : ""
       ]
       return <tr key={row.id} className={renderClassNames(classNames)}>{cells}</tr>
     })

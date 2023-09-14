@@ -3,7 +3,7 @@ import Dropdown from "../Components/Dropdown";
 import { useState } from "react";
 export default function EditSubmissionRoot (){
 const {submissions} = useLoaderData()
-const submissionsOptions = submissions?.map(row=>[row.id,row.date_submitted])
+const submissionsOptions = submissions?.map(row=>[row.id,`#${row.id}, submitted: ${row.date_submitted}`])
 const [id,setId]=useState(1)
 const handleChange = (event) => {
     const value = event.target.value

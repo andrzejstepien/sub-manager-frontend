@@ -10,6 +10,8 @@
 #sidebar h1{
     text-shadow: var(--text-shadow-dark);
     font-size:4.5rem;
+    line-height: 1em;
+    margin-bottom: 1rem;
 }
 #sidebar a:hover{
     text-shadow:

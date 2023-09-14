@@ -3,7 +3,6 @@ import { getStories, getPublications, getSubmissions } from "../APIcalls.mjs"
 import Loader from "../Components/Loader"
 
 
-
 export function Root() {
   const navigation = useNavigation()
     return(
@@ -11,7 +10,8 @@ export function Root() {
         <div id="container">
           {navigation==="loading"?<Loader/>:""}
         <div id="sidebar">
-          <h1>Submission <br/> Manager</h1> version 1.0
+          <h1>Submission <br/> Manager</h1> 
+          version 0.0.0.0.1
           <ul>
             <li>
             <Link to={`stories`}>STORIES</Link>

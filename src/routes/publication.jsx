@@ -3,7 +3,7 @@ import Table from "../Components/Table";
 import PageHeader from "../Components/PageHeader";
 import { submissionsTableOptions } from "./submissions.jsx";
 
-const { filterList, highlights, clickables } = submissionsTableOptions
+const { filterColumns, highlights, clickables } = submissionsTableOptions
 export default function Publication() {
     const { publicationId } = useParams()
     const { publications } = useLoaderData()
@@ -19,7 +19,7 @@ export default function Publication() {
             </div>
 
             <Table data={publicationData.submissions}
-                filterList={[...filterList, 'publication']}
+                filterColumns={[...filterColumns, 'publication']}
                 highlights={highlights}
                 clickables={clickables}
                 sortByDefault='date_submitted'

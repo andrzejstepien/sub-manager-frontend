@@ -4,7 +4,7 @@ import PageHeader from "../Components/PageHeader";
 import { submissionsTableOptions } from "./submissions.jsx";
 import { useState, useEffect } from "react";
 
-const { filterList = [...filterList], highlights, clickables } = submissionsTableOptions
+const { filterColumns = [...filterColumns], highlights, clickables } = submissionsTableOptions
 export default function Story() {
   const { storyId } = useParams()
   const { stories } = useLoaderData()
@@ -20,7 +20,7 @@ export default function Story() {
         </div>
         <Table
           data={storyData.submissions}
-          filterList={[...filterList, 'story']}
+          filterColumns={[...filterColumns, 'story']}
           highlights={highlights}
           clickables={clickables}
           sortByDefault='date_submitted'
