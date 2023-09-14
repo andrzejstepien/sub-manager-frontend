@@ -52,8 +52,8 @@ export default function Table(props) {
       }
     }
     return e
-  })
-  .filter(e=>{return e!==null}) : []
+  }) : []
+
   if (data.length === 0) { return <p>Nothing to see here...</p> }
 
   const [sortBy, setSortBy] = useState({
