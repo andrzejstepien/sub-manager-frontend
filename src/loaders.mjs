@@ -1,4 +1,4 @@
-import {getStories,getPublications,getSubmissions, getResponses} from './APIcalls.mjs'
+import {getStories,getGenres,getPublications,getSubmissions, getResponses} from './APIcalls.mjs'
 
 export async function publicationsLoader (){
     let publications = await getPublications()
@@ -23,4 +23,11 @@ export async function editSubmissionLoader(){
     let responses = await getResponses()
     responses = responses.data
     return { stories, publications, submissions, responses}
+}
+
+export async function editStoryLoader(){
+    const {stories} = await storiesLoader()
+    let genres = await getGenres()
+    genres=genres.data
+    return {stories,genres}
 }

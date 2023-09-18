@@ -7,7 +7,7 @@ import Story from './routes/story';
 import Stories from './routes/stories';
 import Publication from './routes/publication';
 import Publications from './routes/publications';
-import { storiesLoader,publicationsLoader,submissionsLoader, editSubmissionLoader } from './loaders.mjs';
+import { storiesLoader,publicationsLoader,submissionsLoader, editSubmissionLoader, editStoryLoader } from './loaders.mjs';
 import EditStory, {action as editStoryAction } from './routes/editStory';
 import EditPublication, {action as editPublicationAction} from './routes/editPublication';
 import CreateStory, {action as createStoryAction} from './routes/createStory';
@@ -70,7 +70,7 @@ const router = createBrowserRouter([
       {
         path:"/story/:storyId/edit",
         element: <EditStory/>,
-        loader: storiesLoader,
+        loader: editStoryLoader,
         action: editStoryAction
       },
       {

@@ -1,8 +1,8 @@
-export default ({ label, value, onChange }) => {
+export default ({ label, value, name, onChange }) => {
   return (
     <label>
       {label}
-      <input type="checkbox" checked={value} onChange={()=>{onChange(label)}} />
+      <input type="checkbox" name={name} checked={value} onChange={()=>{onChange(label)}} />
     </label>
   )
 }

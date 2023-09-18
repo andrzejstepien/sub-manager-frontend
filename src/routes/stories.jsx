@@ -1,15 +1,18 @@
 import { useLoaderData } from "react-router-dom"
 import Table from "../Components/Table.jsx";
 import PageHeader from "../Components/PageHeader.jsx";
-import { getStories } from "../APIcalls.mjs";
-import magGlass from "../assets/magnifying-glass.svg"
+
 
   
 
 export default function Stories(){
     const { stories } = useLoaderData();
-    const filterList = [
-        'submissions'
+    const filterColumns = [
+        'submissions',
+        'deleted'
+    ]
+    const filterRows = [
+        {column:'deleted',value:1}
     ]
     const clickables = [
         ['title',(row)=>{return `../../story/${row.id}`}]    
@@ -23,8 +26,10 @@ export default function Stories(){
         <Table 
         data={stories} 
         filterColumns={filterColumns} 
+        filterRows={filterRows}
         clickables={clickables}
         sortByDefault='title'
+        badges={badges}
         />
         </div>
     )
