@@ -1,4 +1,4 @@
-import { Form, useLoaderData, useParams, redirect, useNavigate } from "react-router-dom";
+import { Form, useLoaderData, useParams, redirect, useNavigate, useSubmit } from "react-router-dom";
 import PageHeader from "../Components/PageHeader";
 import { requestEdit } from "../APIcalls.mjs";
 import Checkboxes from "../Components/Checkboxes"
@@ -6,48 +6,55 @@ import { useState,useEffect } from "react";
 import { forIn } from "lodash";
 
 export async function action({request,params}){
-    const formData = await request.formData()
-    console.dir(formData)
-    let data = Object.fromEntries(formData)
-    data.id=parseInt(params.storyId)
-    data = packageGenres(data)
+    const data = await request.formData()
     console.dir(data)
+    data.id=params.storyId
     await requestEdit(data,'story')   
     return redirect(`/story/${params.storyId}`)
 }
 
-export const packageGenres = (data) => {
-    const array = []
-    for (const key in data) {
-        if(/genres/.test(key)){
-            array.push(key.slice(6))
-            delete data[key]
-        }
-    }
-    data.genres=array
-    return data
-}
+
 
 
 
 
 export default function EditStory(){
+    const submit = useSubmit()
     const navigate = useNavigate()
     const { storyId } = useParams()
     const { stories, genres } = useLoaderData()
     const storyData = stories.find(row=>row.id==storyId)
-    const [toggledGenres,setToggledGenres]=useState({})
+    const [data,setData] = useState({
+        genres:{}
+    })
     const handleToggle = (target) => {
-        setToggledGenres(prev => {
+        setData(prev => {
             return {
                 ...prev,
-                [target]: !prev[target]
+                genres:{
+                    ...prev.genres,
+                    [target]: !prev.genres[target]
+                }
+                
             }
         })
     }
+    const handleChange = (event) => {
+        const value = event.target.value
+        setData({
+            ...data,
+            [event.target.name]: value
+        })
+    }
+    const handleSave = (event) =>{
+        submit(data,{
+            method:"post",
+            action: `/story/${storyId}/edit`
+        })
+    }
     useEffect(()=>{
-        console.dir(toggledGenres)
-    },[toggledGenres])
+        console.dir(data)
+    },[data])
     return(
         <div id="page-container">
         <PageHeader super={`Story #${storyData.id}`} heading="EDIT" url="/story" id={storyId}/>
@@ -59,6 +66,7 @@ export default function EditStory(){
                 type="text"
                 name="title"
                 defaultValue={storyData.title}    
+                onChange={handleChange}
             />
             </label>
             <label> Wordcount:
@@ -68,7 +76,8 @@ export default function EditStory(){
                 type="number"
                 step="1"
                 name="word_count"
-                defaultValue={storyData.word_count}    
+                defaultValue={storyData.word_count} 
+                onChange={handleChange}   
             />
             </label>
             <label>
@@ -81,7 +90,7 @@ export default function EditStory(){
                 />
             </label>
         <div id="bottom-button-container">
-        <button type="submit">SAVE</button>
+        <button type="button" onClick={handleSave}>SAVE</button>
         <button type="button" onClick={()=>{navigate("/stories")}}>CANCEL</button>
         </div>
         
