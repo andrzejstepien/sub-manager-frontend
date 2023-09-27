@@ -6,7 +6,7 @@ import { useState,useEffect } from "react";
 import { forIn } from "lodash";
 
 export async function action({request,params}){
-    const data = await request.formData()
+    const data = await request.json()
     console.dir(data)
     data.id=params.storyId
     await requestEdit(data,'story')   
@@ -49,12 +49,21 @@ export default function EditStory(){
     const handleSave = (event) =>{
         submit(data,{
             method:"post",
-            action: `/story/${storyId}/edit`
+            action: `/story/${storyId}/edit`,
+            encType: "application/json"
         })
     }
     useEffect(()=>{
         console.dir(data)
     },[data])
+    useEffect(()=>{
+        setData(prev=>{
+           return {
+                ...prev,
+                genres:storyData.genres
+            }
+        })
+    },[storyData])
     return(
         <div id="page-container">
         <PageHeader super={`Story #${storyData.id}`} heading="EDIT" url="/story" id={storyId}/>
@@ -85,7 +94,7 @@ export default function EditStory(){
                 name="genres"
                 options={genres}
                 onChange={handleToggle}
-                values={genres}
+                values={data.genres}
                 legend="Genres:"
                 />
             </label>
