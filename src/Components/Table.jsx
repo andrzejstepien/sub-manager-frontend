@@ -109,10 +109,8 @@ export default function Table(props) {
 
     if (Array.isArray(contents)) {
       const badgeIndex = props?.badges?.findIndex(e=>{return e[0]==key})
-      console.log("badgeIndex for key "+key+": "+badgeIndex)
       if(badgeIndex>=0){
         const array = contents.map(e=>{return e[props.badges[badgeIndex][1]]})
-        console.dir(array)
         return <Cell><Badges data={array} setFocus={props.setFocus} /></Cell>
       }
       if (typeof contents[0] === 'object') {

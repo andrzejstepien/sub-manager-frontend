@@ -13,7 +13,18 @@ export async function action({request,params}){
     return redirect(`/story/${params.storyId}`)
 }
 
-
+const makeGenreObject = (genres,titleGenres) =>{
+    const obj = {}
+    for (const genre of genres) {
+        if(genre){
+            obj[genre] = titleGenres.some(e=>{
+                return e.name===genre
+            })
+        }
+        
+    }
+    return obj
+}
 
 
 
@@ -60,7 +71,7 @@ export default function EditStory(){
         setData(prev=>{
            return {
                 ...prev,
-                genres:storyData.genres
+                genres:makeGenreObject(genres,storyData.genres)
             }
         })
     },[storyData])

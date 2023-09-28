@@ -7,6 +7,7 @@ import PageHeader from "../Components/PageHeader.jsx";
 
 export default function Stories(){
     const { stories } = useLoaderData();
+    console.dir(stories)
     const filterColumns = [
         'submissions',
         'deleted'
